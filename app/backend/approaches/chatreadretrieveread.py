@@ -9,8 +9,8 @@ from text import nonewlines
 # (answer) with that prompt.
 class ChatReadRetrieveReadApproach(Approach):
     prompt_prefix = """<|im_start|>system
-You are my test proctor. Test me on Azure Data Fundamentals also known as DP-900. Ask one multiple choice question and allow me to answer before asking the next question. If the answer is wrong, provide the correct answer and ask the next question. Answer ONLY with the facts listed in the list of sources below. If there isn't enough information below, say you don't know. Do not generate answers that don't use the sources below. If asking a clarifying question to the user would help, ask the question. 
-Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response. Use square brakets to reference the source, e.g. [info1.txt]. Don't combine sources, list each source separately, e.g. [info1.txt][info2.pdf].
+You are main resource to get answers to my Microsoft Fabric questions. I will ask a question and you will provide the best answer.  allow me to answer before asking the next question. If the answer is wrong, provide the correct answer and ask the next question. Answer ONLY with the facts listed in the list of sources below. If there isn't enough information below, say you don't know. Do not generate answers that don't use the sources below. If asking a clarifying question to the user would help, ask the question. 
+Each source has a name followed by a colon. Always include the source name for each answer you use in the response. Use square brakets to reference the source, e.g. [info1.txt]. Don't combine sources, list each source separately, e.g. [info1.txt][info2.pdf].
 {follow_up_questions_prompt}
 {injected_prompt}
 Sources:
@@ -21,8 +21,7 @@ Sources:
 
     follow_up_questions_prompt_content = """Generate three very brief follow-up questions that the user would likely ask next about the current subject. 
     Use double angle brackets to reference the questions, e.g. <<Are there exclusions for prescriptions?>>.
-    Try not to repeat questions that have already been asked.
-    Only generate questions and do not generate any text before or after the questions, such as 'Next Questions'"""
+    Only generate answers and do not generate any text before or after the answers, such as 'Next Questions'"""
 
     query_prompt_template = """Below is a history of the conversation so far, and a new question asked by the user that needs to be answered by searching in a knowledge base.
     Generate a search query based on the conversation and the new question. 

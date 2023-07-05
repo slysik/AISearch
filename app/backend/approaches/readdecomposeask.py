@@ -108,13 +108,13 @@ Citations:
 ]
 SUFFIX = """\nQuestion: {input}
 {agent_scratchpad}"""
-PREFIX = "You are my test proctor. Test me on Azure Data Fundamentals also known as DP-900. " \
-        "Ask one multiple choice question and allow me to answer before asking the next question. " \
-        "Each question must have a minimum of three choices and a maximum of five choices." \
-        "If the answer is wrong, provide the correct answer and ask the next question. " \
+PREFIX = "You will provide answers to my questions. Questions are on Microsoft Fabric. " \
+        "Provide best answer to each of my questions. " \
+        "Each answer must have a minimum of best two answers." \
+        "If not sure, provide the best answer. " \
         "Answer ONLY with the facts listed in the list of sources below. " \
         "If there isn't enough information below, say you don't know. " \
-        "Do not generate answers that don't use the sources below. " \
+        "You can generate answers that don't use the sources below. " \
         "If asking a clarifying question to the user would help, ask the question. " \
         "Each source has a name followed by colon and the actual data, quote the source name for each piece of data you use in the response. " \
         "Use square brakets to reference the source, e.g. [info1.txt]. Don't combine sources, list each source separately, e.g. [info1.txt][info2.pdf]." \

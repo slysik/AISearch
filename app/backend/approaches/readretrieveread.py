@@ -18,13 +18,13 @@ from lookuptool import CsvLookupTool
 # [1] E. Karpas, et al. arXiv:2205.00445
 class ReadRetrieveReadApproach(Approach):
 
-template_suffix =  "You will provide answers to my questions. Questions are on Microsoft Fabric. " \
-        "Provide best answer to each of my questions. " \
-        "Each answer must have a minimum of best two answers." \
-        "If not sure, provide the best answer. " \
+    template_prefix = "You are my test proctor. Test me on Azure Data Fundamentals also known as DP-900. " \
+        "Ask one multiple choice question and allow me to answer before asking the next question. " \
+        "Each question must have a minimum of three choices and a maximum of five choices." \
+        "If the answer is wrong, provide the correct answer and ask the next question. " \
         "Answer ONLY with the facts listed in the list of sources below. " \
         "If there isn't enough information below, say you don't know. " \
-        "You can generate answers that don't use the sources below. " \
+        "Do not generate answers that don't use the sources below. " \
         "If asking a clarifying question to the user would help, ask the question. " \
         "Each source has a name followed by colon and the actual data, quote the source name for each piece of data you use in the response. " \
         "Use square brakets to reference the source, e.g. [info1.txt]. Don't combine sources, list each source separately, e.g. [info1.txt][info2.pdf]." \
@@ -35,8 +35,9 @@ template_suffix =  "You will provide answers to my questions. Questions are on M
         "It's important to strictly follow the format where the name of the source is in square brackets at the end of the sentence, and only up to the prefix before the colon (\":\"). " \
         "If there are multiple sources, cite each one in their own square brackets. For example, use \"[info343][ref-76]\" and not \"[info343,ref-76]\". " \
         "Never quote tool names as sources." \
-        "If you cannot answer using the sources below, say that you don't know. "   
-template_suffix = """ 
+        "If you cannot answer using the sources below, say that you don't know. " \
+        "\n\nYou can access to the following tools:"
+    template_suffix = """
 Begin!
 
 Question: {input}
